@@ -19,15 +19,20 @@ console.log("Est-ce que tous les livres ont été empruntés une fois au moins ?
 
 //Quel est livre le plus emprunté ?
 let bookMostBorrowed = books.reduce((a, b) => (a.rented > b.rented ? a : b));
-console.log(`Le livre le plus emprunté est : ${bookMostBorrowed.title}`)
+console.log(`Le livre le plus emprunté est : ${bookMostBorrowed.title}`);
 
 //Quel est le livre le moins emprunté ?
 let bookLessBorrowed = books.reduce((a, b) => (a.rented < b.rented ? a : b));
-console.log(`Le livre le moins emprunté est : ${bookLessBorrowed.title}`)
+console.log(`Le livre le moins emprunté est : ${bookLessBorrowed.title}`);
 
 //Trouve le livre avec l'ID: 873495 ;
-
+let specialBook = books.find((objet) => objet.id == 873495);
+console.log(`Le livre dont l'ID est 873495 correspond à : ${specialBook.title}.`);
 
 //Supprime le livre avec l'ID: 133712 ;
+let booksLessOne = books.filter(book => book !== specialBook);
+console.log(`Le livre ${specialBook.title} a été supprimé de la liste.`);
 
 //Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé).
+let booksLessOneSorted = booksLessOne.sort((a,b) => a.title.localeCompare(b.title));
+console.log(booksLessOneSorted);
