@@ -22,3 +22,35 @@ const entrepreneurs = [
   { first: 'Peter', last: 'Thiel', year: 1967 }
 ];
 
+//afficher la liste complète dans la console
+console.log(`Voici notre liste d'entrepreneurs :`);
+console.log(entrepreneurs);
+
+//entrepreneurs nés dans les années 70
+console.log('Et voici les entrepreneurs nés dans les années 70 :' );
+const seventies = entrepreneurs.filter((entrepreneurs) => entrepreneurs.year >= 1970 && entrepreneurs.year < 1980);
+console.log(seventies);
+
+
+// Sors une array qui contient le prénom et le nom des entrepreneurs
+// Ici objet est une variable 
+// function est une fonction anonyme qui va prendre chq objet de l'array comme argument
+let entrepreneursName = entrepreneurs.map(function(objet) {
+  return {first: objet.first, last: objet.last};
+});
+
+console.log(entrepreneursName);
+
+//Quel âge aurait chaque inventeur aujourd'hui ?
+let actualDate = new Date();
+let actualYear = actualDate.getFullYear();
+
+let entrepreneursAge = entrepreneurs.map(function(objet) {
+  let age = actualYear - objet.year;
+  return {first: objet.first, last: objet.last, age: age};
+});
+console.log(entrepreneursAge);
+
+//Trie les entrepreneurs par ordre alphabétique du nom de famille
+let entrepreneursSorted = entrepreneurs.sort((a,b) => a.last.localeCompare(b.last));
+console.log(entrepreneursSorted);
