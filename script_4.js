@@ -42,8 +42,7 @@ let entrepreneursName = entrepreneurs.map(function(objet) {
 console.log(entrepreneursName);
 
 //Quel âge aurait chaque inventeur aujourd'hui ?
-let actualDate = new Date();
-let actualYear = actualDate.getFullYear();
+let actualYear = new Date().getFullYear();
 
 let entrepreneursAge = entrepreneurs.map(function(objet) {
   let age = actualYear - objet.year;
